@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Authors</title>
+</head>
+<body>
+    <h1>All Authors</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="author : ${authors}">
+            <td th:text="${author.id}"></td>
+            <td th:text="${author.firstName}"></td>
+            <td th:text="${author.lastName}"></td>
+            <td><a th:href="@{'/books/DeleteAuthor/' + ${author.id}}">Delete</a></td>
+        </tr>
+    </table>
+</body>
+</html>

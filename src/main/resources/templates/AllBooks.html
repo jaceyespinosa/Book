@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Books</title>
+</head>
+<body>
+    <h1>All Books</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Publication Year</th>
+            <th>Page Amount</th>
+            <th>Genre</th>
+            <th>Author</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.publisher}"></td>
+            <td th:text="${book.pubYear}"></td>
+            <td th:text="${book.pageAmount}"></td>
+            <td th:text="${book.genre}"></td>
+            <td th:text="${book.author.firstName + ' ' + book.author.lastName}"></td>
+            <td><a th:href="@{'/books/Edit/' + ${book.id}}">Edit</a></td>
+            <td><a th:href="@{'/books/Delete/' + ${book.id}}">Delete</a></td>
+        </tr>
+    </table>
+    <a href="/books/AddBook">Add New Book</a>
+    <a href="/books/ViewAllAuthors">View All Authors</a>
+    <a href="/books/index">Home</a>
+</body>
+</html>
